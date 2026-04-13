@@ -2,26 +2,50 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { getIconUrl } from '../../services/weatherApi';
 import { getConditionLabel } from '../../i18n/conditionTranslations';
 import { Chip } from '../ui/Chip';
+import { RefreshCw } from 'lucide-react';
 import type { CurrentWeather } from '../../types/weather';
 import styles from './WeatherCard.module.css';
+
 
 interface WeatherCardProps {
   data: CurrentWeather;
   isLoading?: boolean;
+  onReload?: () => void;
+  isRefreshing?: boolean;
 }
+
 
 function formatTime(unix: number, timezone: number): string {
   const date = new Date((unix + timezone) * 1000);
   return date.toUTCString().slice(17, 22);
 }
 
-function formatDate(unix: number, timezone: number): string {
+// Mapeamento lang → locale do Intl
+const LANG_LOCALE: Record<string, string> = {
+  'pt-BR': 'pt-BR',
+  en: 'en-US',
+  es: 'es-ES',
+  de: 'de-DE',
+  it: 'it-IT',
+  fr: 'fr-FR',
+};
+
+function formatDate(unix: number, timezone: number, lang: string): string {
   const date = new Date((unix + timezone) * 1000);
-  return date.toUTCString().slice(0, 16);
+  const locale = LANG_LOCALE[lang] ?? 'en-US';
+  return new Intl.DateTimeFormat(locale, {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC', // offset já aplicado manualmente
+  }).format(date).toUpperCase();
 }
 
-export function WeatherCard({ data, isLoading }: WeatherCardProps) {
+
+export function WeatherCard({ data, isLoading, onReload, isRefreshing }: WeatherCardProps) {
   const { t, lang } = useLanguage();
+
 
   if (isLoading) {
     return (
@@ -32,9 +56,10 @@ export function WeatherCard({ data, isLoading }: WeatherCardProps) {
   }
 
   const localTime = formatTime(data.dt, data.timezone);
-  const localDate = formatDate(data.dt, data.timezone);
+  const localDate = formatDate(data.dt, data.timezone, lang); // traduzido
   const sunrise = formatTime(data.sunrise, data.timezone);
   const sunset = formatTime(data.sunset, data.timezone);
+
 
   return (
     <div className={styles.card}>
@@ -47,7 +72,19 @@ export function WeatherCard({ data, isLoading }: WeatherCardProps) {
         <div className={styles.chips}>
           <Chip label={t.live} variant="live" pulse />
           <Chip label={localDate} variant="neutral" />
+          {onReload && (
+            <button
+              className={`${styles.reloadBtn} ${isRefreshing ? styles.reloadBtnSpinning : ''}`}
+              onClick={onReload}
+              disabled={isRefreshing}
+              title={t.reload ?? 'Atualizar'}
+              aria-label="Atualizar dados meteorológicos"
+            >
+              <RefreshCw size={13} />
+            </button>
+          )}
         </div>
+
       </div>
 
       {}

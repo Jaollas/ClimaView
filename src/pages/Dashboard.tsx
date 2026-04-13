@@ -11,9 +11,11 @@ interface DashboardProps {
   airQuality: AirQuality | null;
   isLoading: boolean;
   error: string | null;
+  onReload?: () => void;
 }
 
-export function Dashboard({ current, forecast, airQuality, isLoading, error }: DashboardProps) {
+export function Dashboard({ current, forecast, airQuality, isLoading, error, onReload }: DashboardProps) {
+
   return (
     <main className={styles.dashboard} id="main-content">
       {}
@@ -28,7 +30,10 @@ export function Dashboard({ current, forecast, airQuality, isLoading, error }: D
       <WeatherCard
         data={current!}
         isLoading={isLoading || !current}
+        onReload={onReload}
+        isRefreshing={isLoading}
       />
+
 
       {}
       {(current || isLoading) && (

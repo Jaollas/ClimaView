@@ -50,7 +50,9 @@ export interface Translations {
   days: [string, string, string, string, string, string, string]; 
 
   language: string;
+  reload: string;
 }
+
 
 export const translations: Record<Lang, Translations> = {
   'pt-BR': {
@@ -90,14 +92,16 @@ export const translations: Record<Lang, Translations> = {
     visibility: 'Visibilidade',
     hourlyForecast: 'Previsão por Hora',
     now: 'Agora',
-    weeklyForecast: 'Previsão 7 Dias',
+    weeklyForecast: 'Previsão 5 Dias',
     tempTrend: 'Tendência de temp.',
     legendHigh: '◆ Máx',
     legendLow: '◆ Mín',
     today: 'Hoje',
     days: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
     language: 'Idioma',
+    reload: 'Atualizar',
   },
+
 
   en: {
     searchPlaceholder: 'Search city...',
@@ -143,7 +147,9 @@ export const translations: Record<Lang, Translations> = {
     today: 'Today',
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     language: 'Language',
+    reload: 'Refresh',
   },
+
 
   es: {
     searchPlaceholder: 'Buscar ciudad...',
@@ -189,7 +195,9 @@ export const translations: Record<Lang, Translations> = {
     today: 'Hoy',
     days: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
     language: 'Idioma',
+    reload: 'Actualizar',
   },
+
 
   de: {
     searchPlaceholder: 'Stadt suchen...',
@@ -235,7 +243,9 @@ export const translations: Record<Lang, Translations> = {
     today: 'Heute',
     days: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
     language: 'Sprache',
+    reload: 'Aktualisieren',
   },
+
 
   it: {
     searchPlaceholder: 'Cerca città...',
@@ -281,7 +291,9 @@ export const translations: Record<Lang, Translations> = {
     today: 'Oggi',
     days: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
     language: 'Lingua',
+    reload: 'Aggiorna',
   },
+
 
   fr: {
     searchPlaceholder: 'Rechercher une ville...',
@@ -327,7 +339,9 @@ export const translations: Record<Lang, Translations> = {
     today: 'Aujourd\'hui',
     days: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
     language: 'Langue',
+    reload: 'Actualiser',
   },
+
 };
 
 export const LANG_LABELS: Record<Lang, string> = {

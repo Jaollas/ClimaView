@@ -25,9 +25,14 @@ function App() {
   } = useWeather();
 
   const handleAddCity = (city: Parameters<typeof addCity>[0]) => {
-
     addCity(city);
     fetchByCoords(city.coords.lat, city.coords.lon);
+  };
+
+  const handleReload = () => {
+    if (current?.coords) {
+      fetchByCoords(current.coords.lat, current.coords.lon);
+    }
   };
 
   return (
@@ -55,7 +60,9 @@ function App() {
             airQuality={airQuality}
             isLoading={isLoading}
             error={error}
+            onReload={handleReload}
           />
+
         </div>
       </div>
     </LanguageProvider>
