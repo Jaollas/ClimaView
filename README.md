@@ -148,15 +148,3 @@ npm run build
 O artefato de produção é gerado em `dist/` e pode ser servido por qualquer servidor estático (ex: Vercel, Netlify, GitHub Pages).
 
 ---
-
-## 📄 Licença
-
-Distribuído sob a licença **MIT**. Consulte o arquivo `LICENSE` para mais informações.
-
----
-
-<div align="center">
-
-Feito com ☕ e ❤️ por **[Jaollas](https://github.com/Jaollas)**
-
-</div>
