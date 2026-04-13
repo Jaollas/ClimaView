@@ -1,0 +1,95 @@
+.wrapper {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-container);
+  border: 1px solid rgba(68, 71, 76, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--on-surface-variant);
+  font-family: var(--font-body);
+  font-size: var(--text-label-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: left;
+}
+
+.trigger:hover {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+  border-color: rgba(68, 71, 76, 0.5);
+}
+
+.globeIcon {
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.triggerLabel {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--surface-container-high);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  list-style: none;
+  box-shadow: var(--shadow-float);
+  animation: fade-in 0.15s ease both;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: none;
+  color: var(--on-surface-variant);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.option:hover {
+  background: var(--surface-bright);
+  color: var(--on-surface);
+}
+
+.optionActive {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.optionLabel {
+  flex: 1;
+}
+
+.checkIcon {
+  color: var(--primary);
+}

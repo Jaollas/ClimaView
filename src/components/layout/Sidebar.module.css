@@ -1,0 +1,306 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  height: 100vh;
+  background: var(--surface-container-low);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border-right: 1px solid rgba(68, 71, 76, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-5) var(--space-4);
+  flex-shrink: 0;
+}
+
+.logoMark {
+  font-size: 20px;
+  color: var(--primary);
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(47, 217, 244, 0.4));
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  color: var(--on-surface);
+}
+
+.searchSection {
+  padding: 0 var(--space-4) var(--space-3);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.searchResults {
+  position: absolute;
+  top: calc(100% - var(--space-3));
+  left: var(--space-4);
+  right: var(--space-4);
+  z-index: 50;
+  background: var(--surface-container-high);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  border: 1px solid var(--outline-variant);
+  border-top: none;
+  overflow: hidden;
+  list-style: none;
+  box-shadow: var(--shadow-float);
+}
+
+.searchResultItem {
+  border-bottom: 1px solid rgba(68, 71, 76, 0.15);
+}
+.searchResultItem:last-child {
+  border-bottom: none;
+}
+
+.searchResultBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: none;
+  color: var(--on-surface);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  transition: background var(--transition-fast);
+}
+
+.searchResultBtn:hover {
+  background: var(--surface-bright);
+}
+
+.pinIcon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.resultName {
+  flex: 1;
+  font-weight: 500;
+  color: var(--on-surface);
+}
+
+.resultCountry {
+  color: var(--on-surface-variant);
+  font-size: var(--text-label-sm);
+}
+
+.currentSummary {
+  margin: 0 var(--space-4) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(47, 217, 244, 0.04);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(47, 217, 244, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.currentCity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--on-surface-variant);
+  font-size: var(--text-label-md);
+  font-family: var(--font-body);
+}
+
+.currentTemp {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm);
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: var(--tracking-display);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--outline-variant) 30%,
+    var(--outline-variant) 70%,
+    transparent 100%
+  );
+  margin: 0 var(--space-4) var(--space-4);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+.citiesSection {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-label-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  padding: 0 var(--space-2) var(--space-2);
+}
+
+.emptyHint {
+  font-size: var(--text-body-sm);
+  color: var(--on-surface-variant);
+  opacity: 0.6;
+  padding: var(--space-2) var(--space-2);
+  line-height: 1.5;
+}
+
+.cityList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cityItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.cityBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-3);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+  min-width: 0;
+}
+
+.cityBtn:hover {
+  background: var(--surface-container);
+}
+
+.cityBtnActive {
+  background: rgba(47, 217, 244, 0.06) !important;
+  box-shadow: inset 2px 0 0 var(--primary);
+}
+
+.cityInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.cityIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.cityName {
+  display: block;
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  color: var(--on-surface);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cityCountry {
+  display: block;
+  font-size: var(--text-label-sm);
+  color: var(--on-surface-variant);
+  line-height: 1;
+}
+
+.cityTemp {
+  font-family: var(--font-display);
+  font-size: var(--text-title-sm);
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  flex-shrink: 0;
+  margin-left: var(--space-2);
+}
+
+.removeBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.cityItem:hover .removeBtn {
+  display: flex;
+}
+
+.removeBtn:hover {
+  background: var(--error-container);
+  color: var(--error);
+}
+
+.addHint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3);
+  background: transparent;
+  border: 1px dashed rgba(68, 71, 76, 0.4);
+  border-radius: var(--radius-md);
+  color: var(--on-surface-variant);
+  font-size: var(--text-body-sm);
+  font-family: var(--font-body);
+  cursor: pointer;
+  width: 100%;
+  transition: var(--transition-fast);
+}
+
+.addHint:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(47, 217, 244, 0.04);
+}
+
+.sidebarFooter {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid rgba(68, 71, 76, 0.2);
+  flex-shrink: 0;
+}
+
+.footerText {
+  font-size: var(--text-label-sm);
+  color: var(--on-surface-variant);
+  opacity: 0.5;
+}
